@@ -5,7 +5,14 @@
     <h2 class="text-center"><%= @sea.name %> </h2>
     <p><%= @sea.bio %></p>
     <button class="btn btn-info" style="margin: 1em"><a href="/seas/<%=@sea.id%>/edit">Edit</a></button><button class="btn btn-info" style="margin: 1em"><a href="/seas">Back</a></button>
-
+    <div class="col-sm-1">
+    <form action="/seas/<%=@sea.id%>" method="POST" style="margin: 0 auto">
+      <input type="hidden" name="_method" value="DELETE" />
+        <input class="btn btn-danger" type="submit" value="Delete"/>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+    </div>
+    
     <div>
       <ul class="list-group">
         <li class="list-group-item">Temperature: <%= @sea.temperature %>&#176 F</li>
@@ -19,8 +26,6 @@
     </div>
   </div>
 
-
+  
 
 </div>
-
-<
