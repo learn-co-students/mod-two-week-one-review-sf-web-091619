@@ -1,28 +1,37 @@
-<%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+  <%= form_for @sea do |f| %>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name, class: 'form-control' %></p>
+    <p><%= f.label :temperature %></p>
+    <p><%= f.number_field :temperature, class: 'form-control' %></p>
+    <p><%= f.label :bio %></p>
+    <p><%= f.text_area :bio, class: 'form-control' %></p>
+    <p><%= f.label :image_url %></p>
+    <p><%= f.text_field :image_url, class: 'form-control' %></p>
+    <p><%= f.label :mood %></p>
+    <p><%= f.text_field :mood, class: 'form-control' %></p>
+    <p><%= f.label :favorite_color %></p>
+    <p><%= f.text_field :favorite_color, class: 'form-control' %></p>
+    <p><%= f.label :scariest_creature %></p>
+    <p><%= f.text_field :scariest_creature, class: 'form-control' %></p>
+    <p><%= f.label :has_mermaids %> <%= f.check_box :has_mermaids %></p>
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
+    <%=  f.submit class: 'form-control btn btn-info' %>
 
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
+    <% end %>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+  <div class="row text-center" style="margin: 1em">
+    <div class="col-sm-1">
+      <%= link_to 'Back', sea_url(@sea.id), class: 'btn btn-info', style: 'margin: 0 auto' %>
+    </div>
+    <div class="col-sm-1">
+      <%= link_to 'All Seas', seas_url, class: 'btn btn-info', style: 'margin: 0 auto' %>
+    </div>
+    <div class="col-sm-9">
+    </div>
+    <div class="col-sm-1">
+      <%= button_to 'Delete', { action: 'destroy', id: @sea.id }, {:method => :delete, class: 'btn btn-danger'} %>
+    </div>
+  </div>
 
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
-
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
-
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
-
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
-
-  <%=  f.submit %>
-
-  <% end %>
+</div>
